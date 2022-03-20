@@ -142,9 +142,10 @@
 \newcommand*{\pointsize}{12pt}          %<Set the font size; make sure the size is correct
                                         %   for the font you will use
 \documentclass[letterpaper,             % Use US letter-size paper
-               oneside,                 % No verso and recto differences
-               \pointsize]              % Uses the font size defined above
-               {memoir}
+              oneside,                 % No verso and recto differences
+              \pointsize]              % Uses the font size defined above
+              {memoir}
+% \documentclass[12pt,letterpaper]{report}
 \renewcommand{\cleardoublepage}%        % \cleardoublepage will create entirely blank 
   {\clearpage}%                         %   pages depending on settings (e.g., usually 
                                         %   before start of \mainmatter); redefine it here
@@ -169,36 +170,40 @@
                                         %   middle of the document
 \usepackage{calc}					    % Calculate text widths; used in page layout 
                                         %   changes
+% \usepackage{natbib}
+% \bibliographystyle{plainnat}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title page, input
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \listadd{\titlelines}%
-  {First Line of the Title}             %<Enter the title of the dissertation
+  {Building Vision and Language Models with Implicit Supervision}             %<Enter the title of the dissertation
 \listadd{\titlelines}%
-  {Second Line of the Title}            % If you want to 
+  {and Increased Efficiency}            % If you want to 
                                         %   split the title across lines,
                                         %   use another \listadd command for the 
                                         %   second line
-\newcommand*\Author{Your Name}                      %<Enter your name; must match official transcript
+\newcommand*\Author{ZHIYUAN FANG}                      %<Enter your name; must match official transcript
 \newcommand*{\documentname}%
   {Dissertation}                        %<Enter the type of document (capitalized)
 \newcommand*{\degreename}
   {Doctor of Philosophy}                %<Enter the type of degree (capitalized)
-\newcommand*\defdate{Month Year}                       %<Give month (written out fully) and year of 
+\newcommand*\defdate{April 2022}                       %<Give month (written out fully) and year of 
                                         %   the oral defense
-\listadd{\committeechair}{Chair Name}   %<Enter committee chair name; use \listadd for
+\listadd{\committeechair}{Yezhou Yang}   %<Enter committee chair name; use \listadd for
 %\listadd{\committeechair}{Another name}%   for additional names
 \newcommand*{\chairlabel}{Chair}        %<If you have co-chairs, replace this text with 
                                         %   'Co-Chair'
-\listadd{\committeemember}{Member Name} %<Enter committee member names; use \listadd for
-\listadd{\committeemember}{Member Name} %   additional names
-\newcommand*{\gradmonth}{Month}         %<Enter the graduation date; month can only be: 
-                                        %  May, August, or December
-\newcommand*{\gradyear}{Year}           %<Enter the graduation year, e.g. 2014
+\listadd{\committeemember}{Chitta Baral} %<Enter committee member names; use \listadd for
+\listadd{\committeemember}{Huan Liu} %   additional names
+\listadd{\committeemember}{Zicheng Liu} %   additional names
 
-\listadd{\keywords}{keyword 1}          %<Enter keywords; use \listadd for
-\listadd{\keywords}{keyword 2}          %   additional names (up to 6)
+\newcommand*{\gradmonth}{May}         %<Enter the graduation date; month can only be: 
+                                        %  May, August, or December
+\newcommand*{\gradyear}{2022}           %<Enter the graduation year, e.g. 2014
+
+\listadd{\keywords}{Vision and Language}          %<Enter keywords; use \listadd for
+% \listadd{\keywords}{Re}          %   additional names (up to 6)
 \newcommand*{\graddate}{\gradmonth%     % Compose full graduation date
   \space\gradyear}    
 
@@ -327,10 +332,10 @@
   \begin{center}
   \SingleSpacing
   \thispagestyle{empty}
-    \renewcommand*{\do}[1]{##1 \\[\baselineskip]} 
+    \renewcommand*{\do}[1]{##1 \\[2\baselineskip]} 
     \dolistloop{\titlelines}
-    by \\[\baselineskip]
-    \Author \\[4\baselineskip]
+    by \\[2\baselineskip]
+    \Author \\[5\baselineskip]
     A \documentname~Presented in Partial Fulfillment \\
     of the Requirements for the Degree \\
     \degreename \\
@@ -785,46 +790,50 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\bibfilename}{sample_library}%<Enter the name of the *.bib file containing the 
-                                        %   reference information for sources cited in
-                                        %   the text. God help you if you're doing 
-                                        %   citations manually. 
-\newcommand{\bibheading}{References}    %<Enter the heading for the references section:
-                                        %   'References', 'Works Cited', or 'Bibliography'
+% \newcommand{\bibfilename}{sample_library}%<Enter the name of the *.bib file containing the 
+%                                         %   reference information for sources cited in
+%                                         %   the text. God help you if you're doing 
+%                                         %   citations manually. 
+% \newcommand{\bibheading}{References}    %<Enter the heading for the references section:
+%                                         %   'References', 'Works Cited', or 'Bibliography'
 
-\providetoggle{usebiblatex}             % True = a biblatex package is being used; 
-                                        %   False = 'natbib' is being used
-\settoggle{usebiblatex}{true}           %~Set to 'false' to use 'natbib' intead of 
-                                        %   biblatex; I strongly recommend using biblatex
-                                        %   because natbib is rather old and will break 
-                                        %   for innocuous things like underscores in URLs 
-\iftoggle{usebiblatex}{%                % Settings for citation package
-%                                       % Settings for 'biblatex' or a version of 
-%                                       %   'biblatex'
-  \usepackage[authordate,%                 
-              backend=biber,%           % Recommend to use 'biber' instead of 'bibtex'
-              doi=only,%                % Avoid printing URLs
-              isbn=false]%              % Don't print ISBN numbers
-              {biblatex-chicago}        %~Other possibilities include: 'biblatex', 
-                                        %   'biblatex-apa', and 'biblatex-mla'
-  \bibliography{\bibfilename} 
-  \setcounter{biburlnumpenalty}{9000}   % Break URLs in bibliography across lines
-  \setcounter{biburlucpenalty}{9000}
-  \setcounter{biburllcpenalty}{9000}
+% \providetoggle{usebiblatex}             % True = a biblatex package is being used; 
+%                                         %   False = 'natbib' is being used
+% \settoggle{usebiblatex}{true}           %~Set to 'false' to use 'natbib' intead of 
+%                                         %   biblatex; I strongly recommend using biblatex
+%                                         %   because natbib is rather old and will break 
+%                                         %   for innocuous things like underscores in URLs 
+% \iftoggle{usebiblatex}{%                % Settings for citation package
+% %                                       % Settings for 'biblatex' or a version of 
+% %                                       %   'biblatex'
+%   \usepackage[authordate,%                 
+%               backend=biber,%           % Recommend to use 'biber' instead of 'bibtex'
+%               doi=only,%                % Avoid printing URLs
+%               isbn=false]%              % Don't print ISBN numbers
+%               {biblatex-chicago}        %~Other possibilities include: 'biblatex', 
+%                                         %   'biblatex-apa', and 'biblatex-mla'
+%   \bibliography{\bibfilename} 
+%   \setcounter{biburlnumpenalty}{9000}   % Break URLs in bibliography across lines
+%   \setcounter{biburlucpenalty}{9000}
+%   \setcounter{biburllcpenalty}{9000}
 
-  \usepackage[style=american,%          % Settings for quotation marks; load after 
-    english=american]{csquotes}%        %   'inputenc'; only use with biblatex; throws 
-  \MakeOuterQuote{"}%                   %   error when used with natbib
-}{%                                     % Settings for 'natbib'
-  \usepackage{natbib}%
-  \newcommand{\natbibstyle}{asudis}%    %~Enter the name of the *.bst file to use to 
-                                        %   format citations with natbib. Default is 
-                                        %   'asudis'. I do not know where 'asudis' came
-                                        %   from, but apparently it formats citations
-                                        %   correctly because it was included with the 
-                                        %   previous LaTeX template. 
-  \renewcommand{\bibname}{\bibheading}%  
-}
+%   \usepackage[style=american,%          % Settings for quotation marks; load after 
+%     english=american]{csquotes}%        %   'inputenc'; only use with biblatex; throws 
+%   \MakeOuterQuote{"}%                   %   error when used with natbib
+% }{%                                     % Settings for 'natbib'
+%   \usepackage{natbib}%
+%   \newcommand{\natbibstyle}{asudis}%    %~Enter the name of the *.bst file to use to 
+%                                         %   format citations with natbib. Default is 
+%                                         %   'asudis'. I do not know where 'asudis' came
+%                                         %   from, but apparently it formats citations
+%                                         %   correctly because it was included with the 
+%                                         %   previous LaTeX template. 
+%   \renewcommand{\bibname}{\bibheading}%  
+% }
+
+% I'd rather still use old natbib package, the new package sucks.
+\usepackage{natbib}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tables and figures
@@ -1003,6 +1012,11 @@
 }{%
 }
 
+\def\etal{{\em et al.\/}\,}
+\def\eg{{\em \textit{e.g.}\/}\,}
+\def\ie{{\em \textit{i.e.}\/}\,}
+\def\vs{{\em \textit{v.s.}\/}\,}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Debugging Help
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1021,7 +1035,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Copyright page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\copyrightpageASU                       %~If you don't want to have a copyright page, 
+% \copyrightpageASU                       %~If you don't want to have a copyright page, 
                                         %   comment out this line
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1036,7 +1050,7 @@
                                         %   your abstract or omit this line and type in 
                                         %   your abstract here. 
 
-\chapter*{Dedication}                   %~Dedication is optional
+% \chapter*{Dedication}                   %~Dedication is optional
 %\clearpage                             %~If you don't wish to display the heading 
                                         %   'Dedication', comment out the previous line 
                                         %   and use this one instead.
@@ -1111,6 +1125,25 @@
 % Body
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter
+
+% \input{chapter1}                  
+
+% \include{seed}
+% \include{distillvlm}
+
+% \include{chapter4}
+% \include{chapter5}
+% \include{chapter6}
+% \include{conclusion}
+
+                                        
+{\singlespace
+\addcontentsline{toc}{part}{REFERENCES}
+\bibliographystyle{asudis}
+% \bibliographystyle{ieeetr}
+\bibliography{ref}
+}
+
 %\include{chapter1}                     %<Insert your chapters here; I recommend to use
 %\include{chapter2}                     %   \include rather than \input for chapters
 %\include{chapter3}% etc. 
@@ -1132,18 +1165,22 @@
 
 \iftoggle{useendnotes}{%                % If you're using endnotes, output them here
   \setsecnumdepth{none}                 % No section numbering in end notes
-  \printpagenotes                       
+%   \printpagenotes                       
   \setsecnumdepth{all}%                 % Turn section numbering back on after printing
 }{}
 
-\iftoggle{usebiblatex}{%                % Output the bibliography
-  \printbibliography[title=\bibheading] % Using a 'biblatex' package
-}{%                                     
-  \bibliographystyle{\natbibstyle}      % Using 'natbib'
-  \bibliography{\bibfilename}
-}
 
-\appendix                               % Indicate start of appendices
+
+% \iftoggle{usebiblatex}{%                % Output the bibliography
+%   \printbibliography[title=\bibheading] % Using a 'biblatex' package
+% }{%                                     
+%   \bibliographystyle{\natbibstyle}      % Using 'natbib'
+%   \bibliography{\bibfilename}
+% }
+
+
+
+% \appendix                               % Indicate start of appendices
                                         % Appendices are considered 'mainmatter' in this
                                         %   documentclass
 \tolerance \defaulttolerance            % Set tolerance back to default
@@ -1164,7 +1201,7 @@
 
 \phantomsection                         % Need '\phantomsection' to place hyperref 
                                         %   bookmark more accurately
-\addcontentsline{toc}{part}{Appendix}   %~Add "Appendix" to TOC here; comment out this 
+% \addcontentsline{toc}{part}{Appendix}   %~Add "Appendix" to TOC here; comment out this 
                                         %   line if you're not including appendices
 
 %\phantomsection                        %!This is the one part of the template that I 
@@ -1180,7 +1217,10 @@
                                         %   the appendices are listed. Keep moving these
                                         %   lines down and checking the output until
                                         %   the TOC headers appear correctly 
-                                        
+                 
+                 
+
+
 %\include{appendix1}                     %~Insert your appendices here; I recommend to use
 %\include{appendix2}                     %   \include rather than \input for appendices. 
 %\include{appendix3}% etc.               %   All heading commands are the same as above,
@@ -1198,5 +1238,6 @@
 %\input{biography}                       %<Enter the name of the .tex file containing your
                                         %   biography or omit this line and type in
                                         %   your biography here (1 paragraph) 
+
 
 \end{document}

@@ -1,42 +1,13 @@
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, 
-placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, 
-nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis 
-egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna 
-fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien 
-est, iaculis in, pretium quis, viverra ac, nunc. 
+An important objective of AI is to understand real-world observations and build up interactive communication with people.
+The ability to interpret and react to the perception reveals the important necessity of developing such a system across both the modalities of Vision (\textbf{V}) and Language (\textbf{L}). Although there have been massive efforts on various VL tasks, \eg, Image/Video Captioning, Visual Question Answering and Textual Grounding, very few of them focus on building the VL models with increased efficiency under real-world scenarios. The main focus of this dissertation is to comprehensively investigate the very uncharted efficient VL learning, aiming to build lightweight, data-efficient, and real-world applicable VL models.
 
-Praesent eget sem vel leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, 
-malesuada eu, pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius 
-orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam. Duis 
-eget orci sit amet orci dignissim rutrum. 
+The proposed studies in this dissertation take three primary aspects into account when it comes to efficient VL,
+1). {Data Efficiency}: collecting task-specific annotations is prohibitively expensive and so manual labor is not always attainable. Techniques are developed to assist the VL learning from implicit supervisions, \ie, in a weakly-supervised fashion. 2). Continuing from that, efficient representation learning is further explored with increased scalability, leveraging large image-text corpus without task-specific annotations. In particular, the knowledge distillation technique is studied for generic {Representation Learning} which proves to bring substantial performance gain than the regular representation learning schema.
+3). {Architectural Efficiency}. Deploying the VL model on edge devices is notoriously challenging due to their cumbersome architectures. To further extend these advancements to the real world, a novel efficient VL architecture is designed to tackle the inference bottleneck and the inconvenient two-stage training. Extensive discussions have been conducted on several critical aspects that prominently influence the performances of compact VL models. 
 
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auc- tor 
-lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. 
-Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio 
-metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. 
-Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis par- turient montes, 
-nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. 
-Pellentesque cursus luctus mauris. 
+% or detector-free built upon the vision transformer architecture. This enables the VL model with great training flexibility and also increased inference speed for their deployment on resource-limited devices.
+% (1) Modularized Textual Grounding System, a textual grounding model that conducts the object localization using textual descriptions step-wisely using only image-level captions as weak supervisions.
+% (2) SEED, a self-supervised distillation paradigm that propose to learn the visual representations using self-supervised learning and knowledge distillation.
+% and (3) DistillVLM, a newly proposed compact Visual-Linguistic (VL) model obtained by VL distillation. DistillVLM exhibits excellent inference speed with competitive performances as a generic VL model on multiple downstream tasks, e.g., visual question answering, image captioning and retrieval. 
+% To this end, we envisage the possibility of developing an unified VL model built upon the transformer architecture without object detector, which enables the VL model with great flexibility for their deployment on resource-limited devices.
 
-Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tin- cidunt 
-tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellen- tesque ante. 
-Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, 
-molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ip- sum ligula, 
-eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. 
-Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque i
-tincidunt 
-purus vel magna. Integer non enim. Praesent euismod nunc eu purus. 
-
-Donec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate 
-metus eu enim. Vestibulum pellentesque felis eu massa. Quisque ullamcorper placerat 
-ipsum. Cras nibh. Morbi vel justo vitae lacus tin- cidunt ultrices. Lorem ipsum dolor sit 
-amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus 
-convallis augue. Etiam facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut 
-imperdiet, enim sed gravida sollic- itudin, felis odio placerat quam, ac pulvinar elit 
-purus eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus quis tortor 
-vitae risus porta vehicula. Fusce mauris. Vestibulum luctus nibh at lectus. Sed bibendum, 
-nulla a faucibus semper, leo velit ultricies tellus, ac venenatis arcu wisi vel nisl. 
-Vestibulum diam. Aliquam pellentesque, augue quis sagittis posuere, turpis lacus congue 
-quam, in hen- drerit risus eros eget felis. Maecenas eget erat in sapien mattis 
-porttitor. 
